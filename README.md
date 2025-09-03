@@ -1,0 +1,2 @@
+# Senai-GPT-Web-jul-25.
+SENAI-GPT-ANGULAR
