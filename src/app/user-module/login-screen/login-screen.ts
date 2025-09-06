@@ -11,6 +11,11 @@ export class LoginScreen {
 
   loginForm: FormGroup;
 
+  emailErroMessage: string;
+
+  passwordErroMessage: string;
+
+
   constructor(private fb: FormBuilder) {
     // quando a tela iniciar.
 
@@ -25,7 +30,16 @@ export class LoginScreen {
 
     });
 
+    //inicia com uma string vazia 
+
+    this.emailErroMessage = 'o campo de e-mail é obrigatorio';
+    this.passwordErroMessage = 'o campo de senha é obrigatório';
+
+    return;
+
+
   }
+
 
   async onLoginClick() {
 
@@ -35,11 +49,11 @@ export class LoginScreen {
     console.log("password", this.loginForm.value.password);
 
     if (this.loginForm.value.email == "") {
-      alert ("preencha o email.");
+      alert("preencha o email.");
       return;
     }
     if (this.loginForm.value.password == "") {
-      alert ("preencha a senha.");
+      alert("preencha a senha.");
       return;
     }
 
@@ -52,7 +66,10 @@ export class LoginScreen {
         email: this.loginForm.value.email,
         password: this.loginForm.value.password
       })
+
+
     })
+
 
     console.log("STATUS CODE", response.status);
 
@@ -62,8 +79,9 @@ export class LoginScreen {
     } else {
       console.log("❌ Deu ruim! Status:", response.status);
       alert("❌ Deu ruim! Erro ao fazer login. Código: " + response.status);
+
     }
-    
+
   }
 
 }

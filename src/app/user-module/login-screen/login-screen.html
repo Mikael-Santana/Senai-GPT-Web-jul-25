@@ -1,25 +1,29 @@
- <!-- <header></header> -->
-   
-    <main class="page-container"> <!-- Caixa Maior-->
+<!-- <header></header> -->
 
-        <div class="robo-image">
+<main class="page-container"> <!-- Caixa Maior-->
 
-        </div>
+    <div class="robo-image">
 
-      <div class="login-container" [formGroup]="loginForm">
+    </div>
 
-            <img src="imgs/login.png" alt="logo do SenaiGPT">
-            <h1 class="titulo">Login</h1>
+    <div class="login-container" [formGroup]="loginForm">
 
-            
+        <img src="imgs/login.png" alt="logo do SenaiGPT">
+        <h1 class="titulo">Login</h1>
 
-            <input class="inpt" type="email" placeholder="insira o e-mail" formControlName = "email">
-            <input class="inpt" type="password" placeholder="insera a senha" formControlName = "password">
 
-            <button class="botao" (click)="onLoginClick()" >Entre</button>
+        <input class="inpt" type="email" placeholder="insira o e-mail" formControlName="email" />
 
-        </div>
+        <span *ngIf="emailErroMessage !== ''" class="error-message">{{ emailErroMessage }}</span>
 
-    </main>
+        <input class="inpt" type="password" placeholder="insira a senha" formControlName="password" />
 
-    <!-- <footer></footer> -->
+        <span *ngIf="passwordErroMessage !== ''" class="error-message">{{ passwordErroMessage }}</span>
+
+        <button class="botao" (click)="onLoginClick()">Entre</button>
+
+    </div>
+
+</main>
+
+<!-- <footer></footer> -->
