@@ -10,12 +10,12 @@
     <h1 class="titulo">Login</h1>
 
     <input class="inpt" type="text" placeholder="Insira o e-mail" formControlName="email" />
-    <span class="error-message">{{ this.emailErrorMessage }}</span>
+    <span class="erro">{{ this.emailErrorMessage }}</span>
     <input class="inpt" type="password" placeholder="Insira a senha" formControlName="password" />
     <span class="error-message">{{ this.passwordErrorMessage }}</span>
     <button class="btt" (click)="onLoginClick()">Entrar</button>
-    <span class="incorreto-message">{{ this.incorretoErrorMessage }}</span>
-    <span class="sucesso-message">{{ this.sucessoErrorMessage }}</span>
+    <span class="erro">{{ this.incorretoErrorMessage }}</span>
+    <span class="erro">{{ this.sucessoErrorMessage }}</span>
   </div>
 </main>
 

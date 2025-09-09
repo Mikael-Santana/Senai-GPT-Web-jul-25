@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -17,7 +17,8 @@ export class LoginScreen {
   incorretoErrorMessage: string;
 
 
-
+// private cd: ChangeDetectorRef
+// this.cd.ChangeDetectorRef(); / forca uma atualizacao na tela 
 
   constructor(private fb: FormBuilder) {
     //Quando a tela iniciar.
@@ -70,10 +71,24 @@ export class LoginScreen {
     if (response.status >= 200 && response.status <= 299) {
       this.sucessoErrorMessage = "Login realizado com sucesso";
       this.incorretoErrorMessage = ""
+
+      let json = await response.json();
+
+      // console.log("json", json)
+
+      let meuToken = json.accessToken;
+      let meuId = json.user.id;
+
+      localStorage.setItem("meuTokem", meuToken)
+      localStorage.setItem("meuId", meuId)
+
+      window.location.href = "chat";
+
     }else {
       this.incorretoErrorMessage = "Login deu errado";
       this.sucessoErrorMessage = ""
     }
+
 
   }
 }

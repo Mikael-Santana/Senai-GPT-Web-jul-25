@@ -82,7 +82,7 @@ img { /*sem nenhum prefixo*/
 
 }  
 
-.botao { 
+.btt { 
     cursor: pointer;
     padding: 20px;
     margin-bottom: 16px;
@@ -95,23 +95,11 @@ img { /*sem nenhum prefixo*/
   
 }  
 
-.error-messege {
-
-    color: red;
-    font-size: 12px;
-    transform: translateY(-10px);
-
-}
-
-.campo-error {
-
-    display: flex;
-    align-items: center;
-}
 
 .erro {
   color: red;
   font-weight: bold;
-  margin-top: 5px;
+  font-size: 12px;
+  transform: translateY(-10px);
 }
 
