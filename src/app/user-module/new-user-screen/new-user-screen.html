@@ -5,22 +5,30 @@
 
   <div class="robo-image"></div>
 
-  <div class="login-container" >
-    <img src="imgs/login.png" alt="logo do SenaiGPT" />
+  <div class="login-container" [formGroup]=" newForm">
+    <img src="imgs/login.png" alt="logo do SenaiGPT"/>
     <h1 class="titulo">Novo Usuario</h1>
-
-    <input class="inpt" type="text" placeholder="Insira o nome de Usuario" /> 
-    <input class="inpt" type="password" placeholder="Insira o e-mail"  />
-    <input class="inpt" type="password" placeholder="Insira a senha"  />
-     <input class="inpt" type="password" placeholder="Insira a senha" />
-    <button class="btt">Entrar</button>
-     <a href="http://" target="_blank" > Clique aqui para fazer o login</a>
     
-<!--     
-     <span class="erro">{{ this.emailErrorMessage }}</span>
-    <span class="error-message">{{ this.passwordErrorMessage }}</span>
-    <span class="erro">{{ this.incorretoErrorMessage }}</span>
-    <span class="erro">{{ this.sucessoErrorMessage }}</span> -->
+    <input class="inpt" type="name" placeholder="Insira o nome de Usuario" formControlName="name" />
+<!-- 
+    <span class="erro">{{ this.emailErrorMessage }}</span> -->
+
+    <input class="inpt" type="email" placeholder="Insira o email" formControlName="email" />
+
+    <input class="inpt" type="password" placeholder="Insira a senha" formControlName="password" />
+
+    <input class="inpt" type="password" placeholder="confirme a senha" formControlName="newpassword" />
+
+    <!-- <span class="error-message">{{ this.passwordErrorMessage }}</span> -->
+
+    <button class="btt" (click)="oncadastroClick()">Entrar</button>
+
+    <!-- <span class="erro">{{ this.incorretoErrorMessage }}</span> -->
+
+    <!-- <span class="erro">{{ this.sucessoErrorMessage }}</span> -->
+
+     <a href="http://localhost:4200/login" target="_blank" > Clique aqui para fazer o login</a>
+
   </div>
 </main>
 
