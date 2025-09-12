@@ -1,35 +1,41 @@
-<!-- <header></header> -->
+<main class="page-container"> <!-- Caixa maior -->
 
-<main class="page-container">
-  <!-- Caixa Maior-->
-
-  <div class="robo-image"></div>
-
-  <div class="login-container" [formGroup]=" newForm">
-    <img src="imgs/login.png" alt="logo do SenaiGPT"/>
-    <h1 class="titulo">Novo Usuario</h1>
-    
-    <input class="inpt" type="name" placeholder="Insira o nome de Usuario" formControlName="name" />
-<!-- 
-    <span class="erro">{{ this.emailErrorMessage }}</span> -->
-
-    <input class="inpt" type="email" placeholder="Insira o email" formControlName="email" />
-
-    <input class="inpt" type="password" placeholder="Insira a senha" formControlName="password" />
-
-    <input class="inpt" type="password" placeholder="confirme a senha" formControlName="newpassword" />
-
-    <!-- <span class="error-message">{{ this.passwordErrorMessage }}</span> -->
-
-    <button class="btt" (click)="oncadastroClick()">Entrar</button>
-
-    <!-- <span class="erro">{{ this.incorretoErrorMessage }}</span> -->
-
-    <!-- <span class="erro">{{ this.sucessoErrorMessage }}</span> -->
-
-     <a href="http://localhost:4200/login" target="_blank" > Clique aqui para fazer o login</a>
-
+  <div class="robo-image">
+    <!-- Imagem do robô (se houver) -->
   </div>
+
+  <div class="login-container" [formGroup]="loginForm">
+     <img src="imgs/login.png" alt="logo do SenaiGPT"/>
+    <h1 class="titulo"> novo usuário</h1>
+
+    <!-- Campo Nome -->
+    <input class="inpt" type="text" placeholder="Insira seu nome" formControlName="nome">
+    <span class="erro">{{nomeErrorMessage}}</span>
+
+    <!-- Campo Email -->
+    <input class="inpt" type="text" placeholder="Insira o e-mail" formControlName="email">
+    <span class="erro">{{emailErrorMessage}}</span>
+
+    <!-- Campo Senha -->
+    <input class="inpt" type="password" placeholder="Insira a senha" formControlName="password">
+    <span class="erro">{{passwordErrorMessage}}</span>
+
+    <!-- Campo Confirmar Senha -->
+    <input class="inpt" type="password" placeholder="Confirme a senha" formControlName="password2">
+
+    <!-- Botão de envio -->
+    <button class="btt" (click)="onEnterClick()">Entrar</button>
+
+    <!-- Botão para ir à tela de login -->
+      <a href="http://localhost:4200/login" target="_blank" > Clique aqui para fazer o login</a>
+
+    <!-- Mensagens de sucesso e erro -->
+    <span class="aprove-mesage">{{sucessLogin}}</span>
+    <span class="error-mesage">{{errorLogin}}</span>
+  </div>
+
 </main>
 
-<!-- <footer></footer> -->
+<footer>
+  <!-- Rodapé vazio por enquanto -->
+</footer>
