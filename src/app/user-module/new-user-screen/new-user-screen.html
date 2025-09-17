@@ -5,7 +5,7 @@
   </div>
 
   <div class="login-container" [formGroup]="loginForm">
-     <img src="imgs/login.png" alt="logo do SenaiGPT"/>
+    <img src="imgs/login.png" alt="logo do SenaiGPT" />
     <h1 class="titulo"> novo usuário</h1>
 
     <!-- Campo Nome -->
@@ -27,11 +27,16 @@
     <button class="btt" (click)="onEnterClick()">Entrar</button>
 
     <!-- Botão para ir à tela de login -->
-      <a href="http://localhost:4200/login" target="_blank" > Clique aqui para fazer o login</a>
+    <a href="http://localhost:4200/login" target="_blank"> Clique aqui para fazer o login</a>
 
     <!-- Mensagens de sucesso e erro -->
     <span class="aprove-mesage">{{sucessLogin}}</span>
     <span class="error-mesage">{{errorLogin}}</span>
+
+    <div class="erro" *ngIf="loginForm.controls['password'].errors?.['minlength'] && loginForm.controls['password'].touched">
+      A senha deve ter no mínimo 10 caracteres
+    </div>
+
   </div>
 
 </main>
