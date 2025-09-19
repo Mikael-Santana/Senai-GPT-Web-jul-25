@@ -110,10 +110,10 @@
 
             </div>
             <div class="chat-messages">
-    
+
                 @for (msg of mensagens; track $index) {
-    
-                    <p class="message-item"[class.chatbot]="msg.userId == `chatbot`"> {{msg.text}} </p>
+
+                <p class="message-item" [class.chatbot]="msg.userId == `chatbot`"> {{msg.text}} </p>
                 }
             </div>
         </div>
@@ -132,6 +132,7 @@
 
             <i class="send-button fa-solid fa-paper-plane" (click)="enviarMensagem()"></i>
 
+       
         </div>
 
     </main>

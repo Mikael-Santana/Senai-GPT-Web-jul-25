@@ -13,8 +13,8 @@ interface IChat {
 }
 
 interface Imensage {
-  
-  chatId: number ;
+
+  chatId: number;
   id: number;
   text: string;
   userId: string;
@@ -74,7 +74,7 @@ export class ChatScreen {
 
   }
 
- async onChatClick(chatClick: IChat) {
+  async onChatClick(chatClick: IChat) {
 
     console.log("ChatClick", chatClick)
 
@@ -88,7 +88,7 @@ export class ChatScreen {
       }
     }));
 
-    console.log ("MENSAGENS", response);
+    console.log("MENSAGENS", response);
 
     this.mensagens = response as Imensage[];
 
@@ -97,7 +97,7 @@ export class ChatScreen {
 
   }
 
-  async enviarMensagem () {
+  async enviarMensagem() {
 
     let novaMensagemUsuario = {
 
@@ -106,6 +106,53 @@ export class ChatScreen {
       userId: localStorage.getItem("meuId"),
       text: this.mensagemUsuario.value
     };
+
+    let novaMensagemUsuarioResponse = await firstValueFrom(this.http.post("https://senai-gpt-api.azurewebsites.net/messages", novaMensagemUsuario, {
+      headers: {
+        "content-type": "application/json",
+        "Authorization": "Bearer " + localStorage.getItem("meuTokem")
+      }
+    }));
+
+    await this.onChatClick(this.chatSelecionado);
+
+    //2 - Enviar a mensagem de usuario para a IA responder
+
+    let respostaIAResponse = await firstValueFrom(this.http.post("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent", {
+      "contents": [
+        {
+          "parts": [
+            {
+              "text": this.mensagemUsuario.value + ".Me de uma resposta objetiva."
+            }
+          ]
+        }
+      ]
+    },{
+      headers: {
+        "content-type": "application/json",
+        "x-goog-api-key": "AIzaSyDV2HECQZLpWJrqCKEbuq7TT5QPKKdLOdo"
+      }
+    })) as any
+
+    let novaRespostaIA = {
+      chatId: this.chatSelecionado.id ,
+      userId: "chatbot",
+      text: respostaIAResponse.candidates[0].content.parts[0].text
+      //id
+    }
+
+      let novaRespostaAiResponse = await firstValueFrom(this.http.post("https://senai-gpt-api.azurewebsites.net/messages", novaRespostaIA, {
+      headers: {
+        "content-type": "application/json",
+        "Authorization": "Bearer " + localStorage.getItem("meuTokem")
+      }
+    }));
+
+    //atualiza as mensagens da tela
+     await this.onChatClick(this.chatSelecionado);
+
+
   }
 }
 
