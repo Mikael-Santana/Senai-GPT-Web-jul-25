@@ -109,3 +109,46 @@ img { /*sem nenhum prefixo*/
     color: #1C1C1C;
     text-decoration: none;
 }
+
+
+/* 📱 Responsividade */
+@media screen and (max-width: 1000px) {
+    .robo-image {
+        background-position: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+    }
+
+    .robo-image {
+        display: none;
+    }
+
+    .login-container {
+        width: 100vw;
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .inpt,
+    .btt {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .titulo {
+        font-size: 48px;
+        text-align: center;
+    }
+
+    .login-container img {
+        height: 48px;
+    }
+
+    .login-container a {
+        font-size: 14px;
+    }
+}

@@ -20,6 +20,7 @@ body {
     font-weight: 400;
     font-size: 76px;
     margin-bottom: 16px;
+    
    
 }
 
@@ -101,5 +102,33 @@ img { /*sem nenhum prefixo*/
   font-weight: bold;
   font-size: 12px;
   transform: translateY(-10px);
+}
+
+/* Media Guery */
+/* http://127.0.0.1:3000/callback */
+
+@media screen and (max-width: 1366px) {
+    /* até 1366px - ou seja, é um monitor pequeno */
+    /* Adicione estilos aqui, se necessário */
+}
+
+@media screen and (max-width: 1000px) {
+    /* até 1000px - ou seja, é um tablet */
+
+    .robo-image {
+        background-position: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* até 768px - ou seja, é um celular */
+
+    .robo-image {
+        display: none;
+    }
+
+    .login-container {
+        width: 100vw;
+    }
 }
 
